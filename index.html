@@ -7,28 +7,6 @@
   
   <meta name="description" content="Guia Prático de Recuperação em Dependência Química por Weverton Ramalho e Pedro Filipe Pez.">
   
-  <!-- ========================================== -->
-  <!-- META PIXEL -->
-  <!-- ========================================== -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', 'SEU_PIXEL_ID_AQUI'); // Substitua pelo seu ID de Pixel real se desejar
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- ========================================== -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -51,7 +29,507 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-color);
       background-image: radial-gradient(circle at 50% 0%, #2a0a0c 0%, #080808 70%);
-      background-attachment: fixed
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      background-color: rgba(229, 9, 20, 0.15);
+      border-bottom: 1px solid rgba(229, 9, 20, 0.3);
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fca5a5;
+    }
+
+    .main-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 16px 60px 16px;
+    }
+
+    .summary-nav {
+      background-color: rgba(18, 18, 18, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 20px 0 28px 0;
+      text-align: left;
+    }
+
+    .summary-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .summary-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .summary-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .summary-list a:hover {
+      color: #ffffff;
+      padding-left: 4px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(229, 9, 20, 0.1);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+      color: var(--accent-red);
+      font-weight: 700;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .highlight-red {
+      color: var(--accent-red);
+      text-decoration: underline;
+      text-decoration-color: rgba(229, 9, 20, 0.4);
+      text-underline-offset: 4px;
+    }
+
+    .hero-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 24px;
+    }
+
+    .mockup-wrapper {
+      position: relative;
+      text-align: center;
+      margin: 20px 0 28px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mockup-glow {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(229, 9, 20, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(20px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .mockup-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      filter: drop-shadow(0 20px 35px rgba(0,0,0,0.95)) drop-shadow(0 0 30px rgba(229,9,20,0.3));
+      transition: transform 0.3s ease;
+    }
+
+    .mockup-img:hover {
+      transform: scale(1.02);
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4); }
+      50% { box-shadow: 0 4px 30px rgba(229, 9, 20, 0.7); }
+      100% { box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4); }
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background-color: var(--accent-red);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      animation: pulseGlow 2.5s infinite;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--accent-red-hover);
+      transform: translateY(-2px);
+    }
+
+    .cta-subtext {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #666666;
+      margin-top: 8px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 28px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      border-left: 4px solid var(--accent-red);
+      padding-left: 12px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #d4d4d4;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: #d4d4d4;
+      font-size: 0.95rem;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+      font-weight: 800;
+    }
+
+    .bonus-card {
+      background: linear-gradient(135deg, #1c0d0e 0%, #121212 100%);
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 28px 0;
+    }
+
+    .bonus-tag {
+      background-color: var(--accent-red);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .bonus-flex {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .bonus-logo {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      flex-shrink: 0;
+    }
+
+    .format-card {
+      border: 1px solid rgba(229, 9, 20, 0.4) !important;
+      background: linear-gradient(180deg, #181818 0%, #121212 100%);
+      position: relative;
+    }
+
+    .format-badge {
+      background-color: rgba(229, 9, 20, 0.15);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+      color: var(--accent-red);
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .format-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .format-box.highlight-box {
+      border-color: rgba(229, 9, 20, 0.5);
+      background-color: rgba(229, 9, 20, 0.05);
+    }
+
+    .format-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .format-box h4 {
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .format-box p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+
+    .testimonial-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 12px;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #cccccc;
+    }
+
+    .testimonial-author {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--accent-red);
+      font-size: 0.78rem;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-icon {
+      color: var(--accent-red);
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-top: 8px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .guarantee-card {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin: 28px 0;
+    }
+
+    .guarantee-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .price-box {
+      text-align: center;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px 20px;
+      margin: 28px 0;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .current-price {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 6px 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      background-color: #000000;
+      padding: 24px 16px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #666666;
+    }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 1.55rem; }
+      .bonus-flex { flex-direction: column; text-align: center; }
+      .bonus-logo { width: 80px; height: 80px; }
+      .format-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    🚨 Oferta Especial com Acesso Incluso ao Grupo Exclusivo de Recuperação
+  </div>
+
+  <div class="main-container">
+
+    <div style="text-align: center;">
+      <span class="hero-badge">Guia Prático de Sobrevivência e Recuperação</span>
+      <h1>Você não precisa de mais um discurso motivacional. Precisa de um <span class="highlight-red">plano prático</span> para parar.</h1>
+      <p class="hero-sub">
+        Um manual direto, sem romantismo e focado em ferramentas reais para desarmar a fissura, reestruturar a rotina e ajudar quem você ama sem se destruir no processo.
+      </p>
+    </div>
+
+    <div class="mockup-wrapper">
+      <div class="mockup-glow"></div>
+      <img src="mockup-livro.png" alt="Mockup do E-book Tudo É Terapêutico" class="mockup-img" onerror="this.onerror=null; this.src='https://placehold.co/600x700/161616/e50914?text=Tudo+E+Terapeutico+Book';">
+    </div>
+
+    <!-- SUMÁRIO NAVEGÁVEL -->
+    <nav class="summary-nav">
+      <div class="summary-title">📌 Neste guia você encontrará:</div>
+      <ul class="summary-list">
+        <li><a href="#dor-real">1. O Ciclo da Compulsão</a></li>
+        <li><a href="#o-que-aprender">2. O Que Você Vai Aprender</a></li>
+        <li><a href="#autores">3. Quem Escreveu Este Guia</a></li>
+        <li><a href="#formatos">4. Formato Duplo (PDF + Phone PDF)</a></li>
+        <li><a href="#bonus">5. Bônus: Comunidade Nanquim</a></li>
+        <li><a href="#depoimentos">6. Depoimentos de Leitores</a></li>
+        <li><a href="#faq">7. Perguntas Frequentes (FAQ)</a></li>
+        <li><a href="#oferta">8. Garantia e Oferta Especial</a></li>
+      </ul>
+    </nav>
+
+    <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="cta-btn">
+      SIM! QUERO RETOMAR O CONTROLE POR R$ 19,90
+    </a>
+    <p class="cta-subtext">🔒 Compra 100% Segura • Acesso Imediato no E-mail</p>
+
+    <div id="dor-real" class="card">
+      <h2>Quantas vezes você disse "esta é a última vez"?</h2>
+      <p>A dependência química não corrói apenas a vida de quem usa; ela devora a paz, o sono e a saúde mental de toda a família. É o desespero de quem não sabe se o próximo telefone vai trazer notícias trágicas.</p>
+      <p>A verdade nua e crua: <strong style="color:#fff;">força de vontade sozinha não vence a compulsão.</strong> Sem um método prático de prevenção de recaídas, o ciclo de promessa, recaída e culpa continua se repetindo.</p>
+    </div>
+
+    <div id="o-que-aprender" class="card">
+      <h2>O que você vai aprender no e-book:</h2>
+      <ul class="feature-list">
+        <li><strong style="color:#fff;">O Protocolo Anti-Fissura:</strong> O passo a passo emergencial para superar a vontade avassaladora de usar nos 15 minutos mais críticos.</li>
+        <li><strong style="color:#fff;">Corte dos 3 P's:</strong> Como remapear Pessoas, Lugares e Hábitos ativadores sem ficar isolado do mundo.</li>
+        <li><strong style="color:#fff;">Identificação de Reservas Secretas:</strong> Como desarmar as pequenas mentiras mentais que preparam o terreno para a recaída semanas antes.</li>
+        <li><strong style="color:#fff;">Guia Prático para Familiares:</strong> A postura de amor exigente para apoiar a recuperação sem financiar ou facilitar o vício.</li>
+      </ul>
+    </div>
+
+    <div id="autores" class="card">
+      <h2>Quem escreveu este guia</h2>
+      <p>Este manual foi construído por <strong style="color:#fff;">Weverton Ramalho</strong> e <strong style="color:#fff;">Pedro Filipe Pez</strong>.</p>
+      <p>Não se trata de teorias distantes escritas por quem nunca sentiu a dor do vício. É a união entre experiência prática de vida, vivência de bastidores e conhecimento de recuperação testado no dia a dia.</p>
+      <p>Cada capítulo foi estruturado para ser um mapa direto ao ponto: sem rodeios, sem julgamento e focado exclusivamente na reconstrução de uma vida limpa e funcional.</p>
+    </div>
+
+    <!-- BLOCO DE DUPLO FORMATO -->
+    <div id="formatos" class="card format-card">
+      <div class="format-badge">📱 Formato Duplo Incluso</div>
+      <h2 style="border: none; padding: 0; margin-bottom: 
