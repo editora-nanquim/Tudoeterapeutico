@@ -29,10 +29,6 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       background-color: var(--bg-color);
       background-image: radial-gradient(circle at 50% 0%, #2a0a0c 0%, #080808 70%);
@@ -56,47 +52,6 @@
       max-width: 680px;
       margin: 0 auto;
       padding: 32px 16px 60px 16px;
-    }
-
-    .summary-nav {
-      background-color: rgba(18, 18, 18, 0.8);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 16px;
-      margin: 20px 0 28px 0;
-      text-align: left;
-    }
-
-    .summary-title {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--accent-red);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .summary-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .summary-list a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      transition: color 0.2s ease, padding-left 0.2s ease;
-    }
-
-    .summary-list a:hover {
-      color: #ffffff;
-      padding-left: 4px;
     }
 
     .hero-badge {
@@ -287,66 +242,6 @@
       flex-shrink: 0;
     }
 
-    .format-card {
-      border: 1px solid rgba(229, 9, 20, 0.4) !important;
-      background: linear-gradient(180deg, #181818 0%, #121212 100%);
-      position: relative;
-    }
-
-    .format-badge {
-      background-color: rgba(229, 9, 20, 0.15);
-      border: 1px solid rgba(229, 9, 20, 0.3);
-      color: var(--accent-red);
-      font-size: 0.7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 10px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-
-    .format-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .format-box {
-      background-color: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-    }
-
-    .format-box.highlight-box {
-      border-color: rgba(229, 9, 20, 0.5);
-      background-color: rgba(229, 9, 20, 0.05);
-    }
-
-    .format-icon {
-      font-size: 1.8rem;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .format-box h4 {
-      color: #ffffff;
-      font-size: 0.92rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .format-box p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0;
-      line-height: 1.4;
-    }
-
     .testimonial-box {
       background-color: rgba(0, 0, 0, 0.4);
       border: 1px solid var(--border-color);
@@ -461,7 +356,6 @@
       h1 { font-size: 1.55rem; }
       .bonus-flex { flex-direction: column; text-align: center; }
       .bonus-logo { width: 80px; height: 80px; }
-      .format-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -486,33 +380,18 @@
       <img src="mockup-livro.png" alt="Mockup do E-book Tudo É Terapêutico" class="mockup-img" onerror="this.onerror=null; this.src='https://placehold.co/600x700/161616/e50914?text=Tudo+E+Terapeutico+Book';">
     </div>
 
-    <!-- SUMÁRIO NAVEGÁVEL -->
-    <nav class="summary-nav">
-      <div class="summary-title">📌 Neste guia você encontrará:</div>
-      <ul class="summary-list">
-        <li><a href="#dor-real">1. O Ciclo da Compulsão</a></li>
-        <li><a href="#o-que-aprender">2. O Que Você Vai Aprender</a></li>
-        <li><a href="#autores">3. Quem Escreveu Este Guia</a></li>
-        <li><a href="#formatos">4. Formato Duplo (PDF + Phone PDF)</a></li>
-        <li><a href="#bonus">5. Bônus: Comunidade Nanquim</a></li>
-        <li><a href="#depoimentos">6. Depoimentos de Leitores</a></li>
-        <li><a href="#faq">7. Perguntas Frequentes (FAQ)</a></li>
-        <li><a href="#oferta">8. Garantia e Oferta Especial</a></li>
-      </ul>
-    </nav>
-
     <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="cta-btn">
       SIM! QUERO RETOMAR O CONTROLE POR R$ 19,90
     </a>
     <p class="cta-subtext">🔒 Compra 100% Segura • Acesso Imediato no E-mail</p>
 
-    <div id="dor-real" class="card">
+    <div class="card">
       <h2>Quantas vezes você disse "esta é a última vez"?</h2>
       <p>A dependência química não corrói apenas a vida de quem usa; ela devora a paz, o sono e a saúde mental de toda a família. É o desespero de quem não sabe se o próximo telefone vai trazer notícias trágicas.</p>
       <p>A verdade nua e crua: <strong style="color:#fff;">força de vontade sozinha não vence a compulsão.</strong> Sem um método prático de prevenção de recaídas, o ciclo de promessa, recaída e culpa continua se repetindo.</p>
     </div>
 
-    <div id="o-que-aprender" class="card">
+    <div class="card">
       <h2>O que você vai aprender no e-book:</h2>
       <ul class="feature-list">
         <li><strong style="color:#fff;">O Protocolo Anti-Fissura:</strong> O passo a passo emergencial para superar a vontade avassaladora de usar nos 15 minutos mais críticos.</li>
@@ -522,14 +401,117 @@
       </ul>
     </div>
 
-    <div id="autores" class="card">
+    <div class="card">
       <h2>Quem escreveu este guia</h2>
       <p>Este manual foi construído por <strong style="color:#fff;">Weverton Ramalho</strong> e <strong style="color:#fff;">Pedro Filipe Pez</strong>.</p>
       <p>Não se trata de teorias distantes escritas por quem nunca sentiu a dor do vício. É a união entre experiência prática de vida, vivência de bastidores e conhecimento de recuperação testado no dia a dia.</p>
       <p>Cada capítulo foi estruturado para ser um mapa direto ao ponto: sem rodeios, sem julgamento e focado exclusivamente na reconstrução de uma vida limpa e funcional.</p>
     </div>
 
-    <!-- BLOCO DE DUPLO FORMATO -->
-    <div id="formatos" class="card format-card">
-      <div class="format-badge">📱 Formato Duplo Incluso</div>
-      <h2 style="border: none; padding: 0; margin-bottom: 
+    <div class="bonus-card">
+      <span class="bonus-tag">Bônus Exclusivo Incluso</span>
+      <div class="bonus-flex">
+        <img src="nanquim.jpg" alt="Logo Nanquim Grupo de Apoio e Recuperação" class="bonus-logo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/1c0d0e/ffffff?text=Nanquim';">
+        <div>
+          <h3 style="color:#fff; font-size:1.05rem; font-weight:700; margin-bottom:4px;">Comunidade Nanquim no Telegram</h3>
+          <p style="font-size:0.88rem; margin:0;">
+            Ao adquirir o e-book, você recebe acesso ao <strong style="color:#fff;">Grupo Nanquim</strong>: um espaço exclusivo no Telegram para troca de vivências, apoio mútuo diário e fortalecimento contínuo da sua jornada.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Depoimentos</h2>
+      <div class="testimonial-box">
+        "O conteúdo do protocolo de emergência salvou o meu dia quando a fissura veio forte. É direto e fácil de lembrar no momento de crise."
+        <span class="testimonial-author">— Leitor em Sobriedade</span>
+      </div>
+      <div class="testimonial-box">
+        "Me ajudou a entender como impor limites ao meu filho sem perder o amor por ele. Guia essencial para famílias."
+        <span class="testimonial-author">— Mãe de Acolhido</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Perguntas Frequentes</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Como recebo o e-book após a compra?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Assim que o pagamento for confirmado (instantâneo no PIX e Cartão), você receberá os dados de acesso imediatamente no seu e-mail para baixar o PDF.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>O material serve para quem está na ativa ou para prevenção?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Serve para ambos! O guia traz tanto condutas emergenciais para quem quer interromper o uso quanto estratégias sólidas de Prevenção de Recaída para quem já está limpo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Como funciona a comunidade no Telegram?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>O link de entrada para o Grupo Nanquim está dentro do e-book. É uma comunidade segura de troca de experiências e fortalecimento mútuo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="guarantee-card">
+      <div class="guarantee-icon">🛡️</div>
+      <div>
+        <h4 style="color:#fff; font-size:0.95rem; font-weight:700; margin-bottom:4px;">Garantia Incondicional de 7 Dias</h4>
+        <p style="font-size:0.85rem; margin:0; color:#a3a3a3;">
+          Leia todo o conteúdo. Se achar que o e-book não trouxe clareza ou ferramentas práticas para sua jornada, solicite o reembolso diretamente na Kiwify e receba 100% do seu investimento de volta.
+        </p>
+      </div>
+    </div>
+
+    <div class="price-box">
+      <p class="old-price">De R$ 97,00 por apenas</p>
+      <div class="current-price">R$ 19,90</div>
+      <p style="font-size:0.8rem; color:#a3a3a3; margin-bottom:20px;">Pagamento único • Acesso vitalício ao arquivo em PDF</p>
+
+      <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="cta-btn">
+        QUERO GARANTIR MEU EXEMPLAR AGORA
+      </a>
+
+      <p class="cta-subtext">🔒 Transação processada com criptografia de ponta a ponta.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© Tudo É Terapêutico — Todos os direitos reservados.</p>
+    <p style="margin-top: 6px; font-size:0.7rem;">Este produto digital tem caráter educativo e de suporte comportamental. Não substitui diagnósticos e tratamentos médicos ou psiquiátricos formais.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        const isActive = parent.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+        });
+
+        if (!isActive) {
+          parent.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
