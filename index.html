@@ -33,4 +33,750 @@
     }
 
     html {
-      scroll-behavior
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: radial-gradient(circle at 50% 0%, #2a0a0c 0%, #080808 70%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Bar Banner */
+    .top-bar {
+      background: linear-gradient(90deg, #b80710 0%, #e50914 50%, #b80710 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Container layout */
+    .main-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 16px 60px 16px;
+    }
+
+    /* Hero Section Elements */
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(229, 9, 20, 0.15);
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      color: #ff4d4d;
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .highlight-red {
+      color: var(--accent-red);
+      text-decoration: underline;
+      text-decoration-color: rgba(229, 9, 20, 0.4);
+      text-underline-offset: 4px;
+    }
+
+    .hero-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 24px;
+    }
+
+    /* Mockup Display */
+    .mockup-wrapper {
+      position: relative;
+      text-align: center;
+      margin: 20px 0 28px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mockup-glow {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(229, 9, 20, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(20px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .mockup-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 12px;
+      filter: drop-shadow(0 20px 35px rgba(0,0,0,0.95)) drop-shadow(0 0 25px rgba(229,9,20,0.25));
+      transition: transform 0.3s ease;
+    }
+
+    .mockup-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Button CTA */
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4); }
+      50% { box-shadow: 0 4px 30px rgba(229, 9, 20, 0.7); }
+      100% { box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4); }
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background-color: var(--accent-red);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      animation: pulseGlow 2.5s infinite;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--accent-red-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Security Badges & Trust */
+    .security-badges-container {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .security-tags {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .badge-pill {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      color: #b0b0b0;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+    }
+
+    .payment-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .kiwify-badge {
+      background-color: #12b76a;
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Standard Cards Layout */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 28px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      border-left: 4px solid var(--accent-red);
+      padding-left: 12px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #d4d4d4;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Lists */
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: #d4d4d4;
+      font-size: 0.95rem;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+      font-weight: 800;
+    }
+
+    /* Bonus Card */
+    .bonus-card {
+      background: linear-gradient(135deg, #1c0d0e 0%, #121212 100%);
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 28px 0;
+    }
+
+    .bonus-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .bonus-tag {
+      background-color: var(--accent-red);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .bonus-value {
+      color: var(--accent-green);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .bonus-flex {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .bonus-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      flex-shrink: 0;
+    }
+
+    /* Dual Format Section */
+    .format-card {
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      background: linear-gradient(180deg, #181818 0%, #121212 100%);
+    }
+
+    .format-badge {
+      background-color: rgba(229, 9, 20, 0.15);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+      color: var(--accent-red);
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .format-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .format-box.highlight-box {
+      border-color: rgba(229, 9, 20, 0.5);
+      background-color: rgba(229, 9, 20, 0.05);
+    }
+
+    .format-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .format-box h4 {
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .format-box p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+
+    /* Testimonials */
+    .testimonial-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 12px;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #cccccc;
+    }
+
+    .stars {
+      color: #ffc107;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      font-style: normal;
+    }
+
+    .testimonial-author {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--accent-red);
+      font-size: 0.78rem;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* FAQ Accordion */
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-icon {
+      color: var(--accent-red);
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-top: 8px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Guarantee Card */
+    .guarantee-card {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin: 28px 0;
+    }
+
+    .guarantee-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* Price Box */
+    .price-box {
+      text-align: center;
+      background: linear-gradient(180deg, #160a0b 0%, #0d0d0d 100%);
+      border: 2px solid var(--accent-red);
+      border-radius: 16px;
+      padding: 32px 20px;
+      margin: 28px 0;
+      box-shadow: 0 0 25px rgba(229, 9, 20, 0.25);
+    }
+
+    .bf-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e50914, #ff5500);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .price-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #888888;
+      font-size: 1.05rem;
+    }
+
+    .discount-tag {
+      background-color: var(--accent-green);
+      color: #000000;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .current-price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent-green);
+      margin: 4px 0 12px 0;
+      line-height: 1;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      background-color: #000000;
+      padding: 24px 16px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #666666;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 520px) {
+      h1 { font-size: 1.55rem; }
+      .bonus-flex { flex-direction: column; text-align: center; }
+      .bonus-logo { width: 80px; height: 80px; }
+      .format-grid { grid-template-columns: 1fr; }
+      .security-tags { gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    🔥 Oferta Especial de Black Friday — Acesso Incluso ao Grupo Exclusivo
+  </div>
+
+  <div class="main-container">
+
+    <!-- Header / Hero Section -->
+    <div style="text-align: center;">
+      <span class="hero-badge">Guia Prático de Sobrevivência e Recuperação</span>
+      <h1>Você não precisa de mais um discurso motivacional. Precisa de um <span class="highlight-red">plano prático</span> para parar.</h1>
+      <p class="hero-sub">
+        Um manual direto, sem romantismo e focado em ferramentas reais para desarmar a fissura, reestruturar a rotina e ajudar quem você ama sem se destruir no processo.
+      </p>
+    </div>
+
+    <!-- Mockup Section -->
+    <div class="mockup-wrapper">
+      <div class="mockup-glow"></div>
+      <img src="mockup-livro.png" alt="Mockup do E-book Tudo É Terapêutico" class="mockup-img" onerror="this.onerror=null; this.src='https://placehold.co/600x700/161616/e50914?text=Tudo+E+Terapeutico+Book';">
+    </div>
+
+    <!-- Hero Call to Action -->
+    <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="cta-btn">
+      SIM! QUERO RETOMAR O CONTROLE POR R$ 19,90 ➔
+    </a>
+
+    <!-- Security Badges -->
+    <div class="security-badges-container">
+      <div class="security-tags">
+        <span class="badge-pill">🔒 Compra Segura</span>
+        <span class="badge-pill">⚡ Acesso Imediato</span>
+        <span class="badge-pill">🛡️ 7 Dias de Garantia</span>
+      </div>
+      <div class="payment-icons">
+        Pagamento processado por <span class="kiwify-badge">KIWIFY</span> • PIX & Cartão
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SEÇÃO DO FORMULÁRIO DE CAPTURA (BREVO) -->
+    <!-- ========================================== -->
+    <div id="captura-capitulo" class="card" style="border: 2px solid rgba(229, 9, 20, 0.5); background: linear-gradient(180deg, #180b0c 0%, #121212 100%);">
+      <div style="text-align: center; margin-bottom: 14px;">
+        <span class="hero-badge" style="margin-bottom: 8px;">Acesso Gratuito</span>
+        <h2 style="border: none; padding: 0; margin-bottom: 6px;">Quer ler o primeiro capítulo agora?</h2>
+        <p style="font-size: 0.9rem; color: #d4d4d4;">Preencha seus dados abaixo para liberar o acesso imediato à introdução do manual.</p>
+      </div>
+
+      <!-- Iframe do Formulário Brevo Inserido -->
+      <iframe width="540" height="480" src="https://45110e65.sibforms.com/v2/serve/MUIFAB4rELQGV3QZmUjwafQ91n5ORdc34qJ7RzkBr_fo7JGUCqkDAfqCvsWF4vY09_YzOiJgan8VKspw2NatwTzRLEZyivH4-Rq-2uSXl3X2jnPuzh5X1UCE-50ADhKoSauUQoQbw93pQ7kU-B4OziwvolLmZjfygaumsLpfzPFaZub3VFodkwTZ_8UqorD7kTcJfU75UibJa3kIlw==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+    </div>
+
+    <!-- Card 1: Dor Real -->
+    <div id="dor-real" class="card">
+      <h2>Quantas vezes você disse "esta é a última vez"?</h2>
+      <p>A dependência química não corrói apenas a vida de quem usa; ela devora a paz, o sono e a saúde mental de toda a família. É o desespero de quem não sabe se o próximo telefone vai trazer notícias trágicas.</p>
+      <p>A verdade nua e crua: <strong style="color:#fff;">força de vontade sozinha não vence a compulsão.</strong> Sem um método prático de prevenção de recaídas, o ciclo de promessa, recaída e culpa continua se repetindo.</p>
+    </div>
+
+    <!-- Card 2: O que você vai aprender -->
+    <div id="o-que-aprender" class="card">
+      <h2>O que você vai aprender no e-book:</h2>
+      <ul class="feature-list">
+        <li><strong style="color:#fff;">O Protocolo Anti-Fissura:</strong> O passo a passo emergencial para superar a vontade avassaladora de usar nos 15 minutos mais críticos.</li>
+        <li><strong style="color:#fff;">Corte dos 3 P's:</strong> Como remapear Pessoas, Lugares e Hábitos ativadores sem ficar isolado do mundo.</li>
+        <li><strong style="color:#fff;">Identificação de Reservas Secretas:</strong> Como desarmar as pequenas mentiras mentais que preparam o terreno para a recaída semanas antes.</li>
+        <li><strong style="color:#fff;">Guia Prático para Familiares:</strong> A postura de amor exigente para apoiar a recuperação sem financiar ou facilitar o vício.</li>
+      </ul>
+    </div>
+
+    <!-- Card 3: Autores -->
+    <div id="autores" class="card">
+      <h2>Quem escreveu este guia</h2>
+      <p>Este manual foi construído por <strong style="color:#fff;">Weverton Ramalho</strong> e <strong style="color:#fff;">Pedro Filipe Pez</strong>.</p>
+      <p>Não se trata de teorias distantes escritas por quem nunca sentiu a dor do vício. É a união entre experiência prática de vida, vivência de bastidores e conhecimento de recuperação testado no dia a dia.</p>
+      <p>Cada capítulo foi estruturado para ser um mapa direto ao ponto: sem rodeios, sem julgamento e focado exclusivamente na reconstrução de uma vida limpa e funcional.</p>
+    </div>
+
+    <!-- Card 4: Formato Duplo -->
+    <div id="formatos" class="card format-card">
+      <div class="format-badge">📱 Formato Duplo Incluso</div>
+      <h2 style="border: none; padding: 0; margin-bottom: 12px;">Receba 2 Versões no Seu E-mail</h2>
+      <p>Pensando no seu conforto e na facilidade de leitura em qualquer aparelho, você receberá duas edições completas:</p>
+
+      <div class="format-grid">
+        <div class="format-box">
+          <span class="format-icon">📄</span>
+          <h4>Versão Padrão</h4>
+          <p>Ideal para leitura em computador, tablet ou para imprimir o material com facilidade.</p>
+        </div>
+        
+        <div class="format-box highlight-box">
+          <span class="format-icon">📱</span>
+          <h4>Phone PDF</h4>
+          <p>Formatado na vertical para tela de celular. Letras ajustadas para ler onde estiver sem dar zoom.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Bônus Exclusivo -->
+    <div id="bonus" class="bonus-card">
+      <div class="bonus-header">
+        <span class="bonus-tag">Bônus Exclusivo Incluso</span>
+        <span class="bonus-value">GRÁTIS HOJE</span>
+      </div>
+      <div class="bonus-flex">
+        <img src="nanquim.jpg" alt="Logo Nanquim Grupo de Apoio e Recuperação" class="bonus-logo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/1c0d0e/ffffff?text=Nanquim';">
+        <div>
+          <h3 style="color:#fff; font-size:1.05rem; font-weight:700; margin-bottom:4px;">Comunidade Nanquim no Telegram</h3>
+          <p style="font-size:0.88rem; margin:0;">
+            Ao adquirir o e-book, você recebe acesso ao <strong style="color:#fff;">Grupo Nanquim</strong>: um espaço exclusivo no Telegram para troca de vivências, apoio mútuo diário e fortalecimento contínuo da sua jornada.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Depoimentos -->
+    <div id="depoimentos" class="card">
+      <h2>Depoimentos</h2>
+      <div class="testimonial-box">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        "O conteúdo do protocolo de emergência salvou o meu dia quando a fissura veio forte. É direto e fácil de lembrar no momento de crise."
+        <span class="testimonial-author">— Leitor em Sobriedade • <span style="color:#00ff88;">Compra Verificada</span></span>
+      </div>
+      <div class="testimonial-box">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        "Me ajudou a entender como impor limites ao meu filho sem perder o amor por ele. Guia essencial para famílias."
+        <span class="testimonial-author">— Mãe de Acolhido • <span style="color:#00ff88;">Compra Verificada</span></span>
+      </div>
+    </div>
+
+    <!-- Card 7: FAQ Interativo -->
+    <div id="faq" class="card">
+      <h2>Perguntas Frequentes</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Como recebo o e-book após a compra?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Assim que o pagamento for confirmado (instantâneo no PIX e Cartão), você receberá os dados de acesso imediatamente no seu e-mail para baixar as duas versões em PDF.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>O material serve para quem está na ativa ou para prevenção?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Serve para ambos! O guia traz tanto condutas emergenciais para quem quer interromper o uso quanto estratégias sólidas de Prevenção de Recaída para quem já está limpo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Como funciona a comunidade no Telegram?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>O link de entrada para o Grupo Nanquim está dentro do e-book. É uma comunidade segura de troca de experiências e fortalecimento mútuo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8: Garantia -->
+    <div class="guarantee-card">
+      <div class="guarantee-icon">🛡️</div>
+      <div>
+        <h4 style="color:#fff; font-size:0.95rem; font-weight:700; margin-bottom:4px;">Garantia Incondicional de 7 Dias</h4>
+        <p style="font-size:0.85rem; margin:0; color:#a3a3a3;">
+          Leia todo o conteúdo. Se achar que o e-book não trouxe clareza ou ferramentas práticas para sua jornada, solicite o reembolso diretamente na Kiwify e receba 100% do seu investimento de volta.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 9: Bloco de Oferta Final -->
+    <div id="oferta" class="price-box">
+      <span class="bf-badge">🔥 Oferta de Black Friday</span>
+      
+      <div class="price-wrapper">
+        <span class="old-price">De R$ 45,90</span>
+        <span class="discount-tag">-56% OFF</span>
+      </div>
+
+      <div class="current-price">Por R$ 19,90</div>
+      
+      <p style="font-size:0.8rem; color:#a3a3a3; margin-bottom:20px;">Pagamento único • Acesso vitalício às 2 versões em PDF</p>
+
+      <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="cta-btn">
+        QUERO GARANTIR MEU EXEMPLAR AGORA ➔
+      </a>
+
+      <div class="security-badges-container" style="margin-top: 18px;">
+        <div class="security-tags">
+          <span class="badge-pill">🔒 Checkout SSL 256-bit</span>
+          <span class="badge-pill">⚡ Entrega Imediata</span>
+          <span class="badge-pill">🛡️ Garantia de 7 Dias</span>
+        </div>
+        <div class="payment-icons" style="margin-top: 10px;">
+          Plataforma de pagamento segura via <span class="kiwify-badge">KIWIFY</span>
+        </div>
+        <p style="font-size: 0.72rem; color: #777777; margin-top: 6px;">Aceitamos PIX, Cartão de Crédito e Boleto</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Tudo É Terapêutico — Todos os direitos reservados.</p>
+    <p style="margin-top: 6px; font-size:0.7rem;">Este produto digital tem caráter educativo e de suporte comportamental. Não substitui diagnósticos e tratamentos médicos ou psiquiátricos formais.</p>
+  </footer>
+
+  <!-- Accordion JavaScript -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        const isActive = parent.classList.contains('active');
+        
+        // Close all existing open items
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+        });
+
+        // Toggle selected item
+        if (!isActive) {
+          parent.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
